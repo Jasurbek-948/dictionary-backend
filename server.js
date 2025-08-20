@@ -10,6 +10,10 @@ require('dotenv').config();
 
 const app = express();
 
+app.get('/', (req, res) => {
+    res.send('Hello World');
+});
+
 app.use(express.json());
 app.use('/uploads', express.static('uploads'));
 app.use('/api/dictionary', dictionaryRoutes);
