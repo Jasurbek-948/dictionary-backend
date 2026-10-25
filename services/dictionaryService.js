@@ -9,19 +9,19 @@ const addWord = async (data) => {
     const word = new Dictionary(data);
     return word.save();
 };
-
-const updateWord = async (id, data, user) => {
+ 
+const updateWord = async (id, data, user) => { 
     if (!mongoose.Types.ObjectId.isValid(id)) {
-        throw new Error('Noto\'g\'ri ID formati');
-    }
-    return Dictionary.findByIdAndUpdate(
-        id,
+        throw new Error('Noto\'g\'ri ID formati'); 
+    }   
+    return Dictionary.findByIdAndUpdate(     
+        id, 
         { $set: { ...data, updatedAt: Date.now() } },
         { new: true }
     );
-};
+}; 
 
-const deleteWord = async (id, user) => {
+const deleteWord = async (id, user) => {  
     if (!mongoose.Types.ObjectId.isValid(id)) {
         throw new Error('Noto\'g\'ri ID formati');
     }
